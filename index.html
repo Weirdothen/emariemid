@@ -989,7 +989,7 @@
     </div>
 
     <!-- SCROLL TO TOP BUTTON -->
-    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); document.body.scrollTo({top: 0, behavior: 'smooth'}); document.documentElement.scrollTo({top: 0, behavior: 'smooth'});" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; padding: 12px 18px; font-family: 'Space Mono', monospace; font-weight: bold; background: #000; color: white; border: 2px solid #fff; cursor: pointer; display: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s, background 0.3s; border-radius: 4px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.background='#333';" onmouseout="this.style.transform='translateY(0)'; this.style.background='#000';">
+    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); document.body.scrollTo({top: 0, behavior: 'smooth'}); document.documentElement.scrollTo({top: 0, behavior: 'smooth'});" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 12px 18px; font-family: 'Space Mono', monospace; font-weight: bold; background: #000; color: white; border: 2px solid #fff; cursor: pointer; display: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s, background 0.3s; border-radius: 4px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.background='#333';" onmouseout="this.style.transform='translateY(0)'; this.style.background='#000';">
         ↑ TOP
     </button>
 
@@ -997,15 +997,15 @@
         // Scroll to Top Logic
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
         const handleScroll = () => {
-            const scrollPos = window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
-            if (scrollPos > 400) {
+            const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (scrollPos > 300) {
                 scrollToTopBtn.style.display = 'block';
             } else {
                 scrollToTopBtn.style.display = 'none';
             }
         };
-        window.addEventListener('scroll', handleScroll);
-        document.body.addEventListener('scroll', handleScroll);
+        // Using capture phase (true) guarantees we catch the scroll event on mobile regardless of which element the browser decides is the scroll container
+        window.addEventListener('scroll', handleScroll, true);
     </script>
 </body>
 </html>
