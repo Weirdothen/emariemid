@@ -221,11 +221,12 @@
             background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
             z-index: 5000;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             font-family: 'Inter', sans-serif;
-            padding: 40px;
+            padding: 8vh 20px 10vh 20px;
             text-align: center;
+            overflow-y: auto;
         }
         #invest-overlay.active { display: flex; }
 
@@ -323,6 +324,7 @@
 
         .invest-return-btn {
             margin-top: 40px;
+            margin-bottom: 40px;
             padding: 10px 25px;
             border: none;
             border-bottom: 3px dashed var(--marker);
@@ -350,11 +352,12 @@
             background: #fff;
             z-index: 5000;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             font-family: 'Inter', sans-serif;
-            padding: 40px;
+            padding: 8vh 20px 10vh 20px;
             text-align: center;
+            overflow-y: auto;
         }
         #contact-overlay.active, #coming-soon-overlay.active { display: flex; }
 
@@ -498,10 +501,8 @@
             }
             
             /* Draggable adjustments for mobile */
-            .draggable-note {
-                width: 120px !important;
-                font-size: 1rem !important;
-                padding: 10px !important;
+            .draggable-note, .draggable-pin {
+                display: none !important;
             }
         }
     </style>
